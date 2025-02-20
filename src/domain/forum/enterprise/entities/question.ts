@@ -1,7 +1,7 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Slug } from './value-objects/slug'
 import { Optional } from '@/core/types/optional'
-import dayjs from '@/lib/dayjs'
+import dayjs from '@/core/lib/dayjs'
 import { AggregateRoot } from '@/core/entities/aggregate-root'
 import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/question-attachment-list'
 import { QuestionBestAnswerChosenEvent } from '../events/question-best-answer-chosen'
