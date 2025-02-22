@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common'
 
+import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-cases/choose-question-best-answer'
+import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/comment-on-answer'
+import { CommentOnQuestionUseCase } from '@/domain/forum/application/use-cases/comment-on-question'
+import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/create-question'
+import { DeleteAnswerCommentUseCase } from '@/domain/forum/application/use-cases/delete-answer-comment'
+import { DeleteQuestionCommentUseCase } from '@/domain/forum/application/use-cases/delete-question-comment'
+import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/use-cases/fetch-recent-questions'
+import { DatabaseModule } from '../database/database.module'
 import { AuthenticateController } from './controllers/authenticate.controller'
 import { CreateAccountController } from './controllers/create-account.controller'
 import { CreateQuestionController } from './controllers/create-question.controller'
 import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions.controller'
-import { DatabaseModule } from '../database/database.module'
-import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/create-question'
-import { DeleteQuestionCommentUseCase } from '@/domain/forum/application/use-cases/delete-question-comment'
-import { DeleteAnswerCommentUseCase } from '@/domain/forum/application/use-cases/delete-answer-comment'
-import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-cases/choose-question-best-answer'
-import { FetchAnswerCommentsUseCase } from '@/domain/forum/application/use-cases/fetch-answer-comments'
-import { CommentOnQuestionUseCase } from '@/domain/forum/application/use-cases/comment-on-question'
-import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/comment-on-answer'
 
 @Module({
   imports: [DatabaseModule],
@@ -26,7 +26,7 @@ import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/com
     DeleteQuestionCommentUseCase,
     DeleteAnswerCommentUseCase,
     ChooseQuestionBestAnswerUseCase,
-    FetchAnswerCommentsUseCase,
+    FetchRecentQuestionsUseCase,
     CommentOnQuestionUseCase,
     CommentOnAnswerUseCase,
   ],
