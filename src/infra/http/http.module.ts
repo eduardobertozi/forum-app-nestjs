@@ -14,6 +14,7 @@ import { CreateQuestionController } from './controllers/create-question.controll
 import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions.controller'
 import { AuthenticateStudentUseCase } from '@/domain/authentication/application/use-cases/authenticate-student'
 import { CryptographyModule } from '../cryptography/cryptography.module'
+import { RegisterStudentUseCase } from '@/domain/authentication/application/use-cases/register-student'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -25,6 +26,7 @@ import { CryptographyModule } from '../cryptography/cryptography.module'
   ],
   providers: [
     AuthenticateStudentUseCase,
+    RegisterStudentUseCase,
     CreateQuestionUseCase,
     DeleteQuestionCommentUseCase,
     DeleteAnswerCommentUseCase,
