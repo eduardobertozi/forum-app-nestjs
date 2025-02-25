@@ -3,7 +3,7 @@ import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-atta
 import { Injectable } from '@nestjs/common'
 
 @Injectable()
-export class PrismaAnswerAttatchmentsRepository
+export class PrismaAnswerAttachmentsRepository
   implements AnswerAttachmentsRepository
 {
   findManyByAnswerId(answerId: string): Promise<AnswerAttachment[]> {
