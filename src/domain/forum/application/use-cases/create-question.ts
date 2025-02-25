@@ -4,6 +4,7 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Either, right } from '@/core/either'
 import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-attachment'
 import { QuestionAttachmentList } from '@/domain/forum/enterprise/entities/question-attachment-list'
+import { Injectable } from '@nestjs/common'
 
 interface CreateQuestionRequest {
   authorId: string
@@ -19,8 +20,9 @@ type CreateQuestionResponse = Either<
   }
 >
 
+@Injectable()
 export class CreateQuestionUseCase {
-  constructor(private questionsRepository: QuestionsRepository) {}
+  constructor(private readonly questionsRepository: QuestionsRepository) {}
 
   async execute({
     authorId,

@@ -7,8 +7,8 @@ POST {{base_url}}/accounts
 Content-Type: application/json
 
 {
-  "name": "John Doe 3",
-  "email": "johndoe3example.com",
+  "name": "John Doe 4",
+  "email": "johndoe4@example.com",
   "password": "123456789"
 }
 
@@ -29,12 +29,12 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "title": "Nova pergunta 2",
-  "content": "Conteúdo da pergunta 2"
+  "title": "Nova pergunta 3",
+  "content": "Conteúdo da pergunta 3"
 }
 
 ###
 # @name fetch_questions
-GET {{base_url}}/questions?page=2
+GET {{base_url}}/questions?page=1
 Content-Type: application/json
 Authorization: Bearer {{authToken}}

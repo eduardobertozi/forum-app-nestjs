@@ -25,8 +25,8 @@ type EditQuestionResponse = Either<
 
 export class EditQuestionUseCase {
   constructor(
-    private questionsRepository: QuestionsRepository,
-    private questionAttachmentsRepository: QuestionAttachmentsRepository,
+    private readonly questionsRepository: QuestionsRepository,
+    private readonly questionAttachmentsRepository: QuestionAttachmentsRepository,
   ) {}
 
   async execute({
