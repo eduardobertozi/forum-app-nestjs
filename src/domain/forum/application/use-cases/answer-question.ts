@@ -7,7 +7,7 @@ import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-atta
 import { Injectable } from '@nestjs/common'
 
 interface AnswerQuestionRequest {
-  instructorId: string
+  authorId: string
   questionId: string
   content: string
   attachmentsIds: string[]
@@ -26,13 +26,13 @@ export class AnswerQuestionUseCase {
 
   async execute({
     questionId,
-    instructorId,
+    authorId,
     content,
     attachmentsIds,
   }: AnswerQuestionRequest): Promise<AnswerQuestionResponse> {
     const answer = Answer.create({
       content,
-      authorId: new UniqueEntityID(instructorId),
+      authorId: new UniqueEntityID(authorId),
       questionId: new UniqueEntityID(questionId),
     })
 
