@@ -2,7 +2,14 @@ import { EditQuestionUseCase } from '@/domain/forum/application/use-cases/edit-q
 import { CurrentUser } from '@/infra/auth/current-user.decorator'
 import { UserPayload } from '@/infra/auth/strategy'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation.pipe'
-import { Body, Controller, HttpCode, Param, Put } from '@nestjs/common'
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  HttpCode,
+  Param,
+  Put,
+} from '@nestjs/common'
 import { z } from 'zod'
 
 const editQuestionBodySchema = z.object({
@@ -28,12 +35,16 @@ export class EditQuestionController {
     const { title, content } = body
     const userId = user.sub
 
-    await this.editQuestion.execute({
+    const result = await this.editQuestion.execute({
       questionId,
       title,
       content,
       authorId: userId,
       attachmentsIds: [],
     })
+
+    if (result.isLeft()) {
+      throw new BadRequestException()
+    }
   }
 }
