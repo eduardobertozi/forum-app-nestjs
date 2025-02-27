@@ -33,6 +33,7 @@ import { ChooseQuestionBestAnswerController } from './controllers/choose-questio
 import { CommentOnQuestionController } from './controllers/comment-on-question.controller'
 import { DeleteQuestionCommentController } from './controllers/delete-question-comment.controller'
 import { CommentOnAnswerController } from './controllers/comment-on-answer.controller'
+import { DeleteAnswerCommentController } from './controllers/delete-answer-comment.controller'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -52,6 +53,7 @@ import { CommentOnAnswerController } from './controllers/comment-on-answer.contr
     CommentOnQuestionController,
     DeleteQuestionCommentController,
     CommentOnAnswerController,
+    DeleteAnswerCommentController,
   ],
   providers: [
     AuthenticateStudentUseCase,
@@ -74,6 +76,7 @@ import { CommentOnAnswerController } from './controllers/comment-on-answer.contr
     CommentOnQuestionUseCase,
     DeleteQuestionCommentUseCase,
     CommentOnAnswerUseCase,
+    DeleteAnswerCommentUseCase,
   ],
 })
 export class HttpModule {}
