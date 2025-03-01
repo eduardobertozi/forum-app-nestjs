@@ -1,5 +1,6 @@
 import { AppModule } from '@/infra/app.module'
 import { DatabaseModule } from '@/infra/database/database.module'
+import { StorageModule } from '@/infra/storage/storage.module'
 import { INestApplication } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { Test } from '@nestjs/testing'
@@ -13,7 +14,7 @@ describe('Upload Attachment [E2E]', () => {
 
   beforeEach(async () => {
     const moduleRef = await Test.createTestingModule({
-      imports: [AppModule, DatabaseModule],
+      imports: [AppModule, DatabaseModule, StorageModule],
       providers: [StudentFactory],
     }).compile()
 
@@ -35,5 +36,8 @@ describe('Upload Attachment [E2E]', () => {
       .attach('file', './test/e2e/sample.jpg')
 
     expect(response.statusCode).toBe(201)
+    expect(response.body).toEqual({
+      attachmentId: expect.any(String),
+    })
   })
 })
