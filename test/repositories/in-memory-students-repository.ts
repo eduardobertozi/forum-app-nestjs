@@ -1,6 +1,7 @@
+import { StudentsRepository } from '@/domain/authentication/application/repositories/students.repository'
 import { Student } from '@/domain/authentication/enterprise/entities/student'
 
-export class InMemoryStudentsRepository {
+export class InMemoryStudentsRepository implements StudentsRepository {
   public items: Student[] = []
 
   findByEmail(email: string): Promise<Student | null> {
