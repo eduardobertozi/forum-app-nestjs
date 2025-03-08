@@ -11,7 +11,7 @@ import { QuestionsCommentsRepository } from '@/domain/forum/application/reposito
 import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments.repository'
 import { AnswersRepository } from '@/domain/forum/application/repositories/answers.repository'
 import { AnswersCommentsRepository } from '@/domain/forum/application/repositories/answers-comments.repository'
-import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/answer-attachments.repository'
+import { AnswerAttachmentRepository } from '@/domain/forum/application/repositories/answer-attachment.repository'
 import { StudentsRepository } from '@/domain/authentication/application/repositories/students.repository'
 import { PrismaStudentsRepository } from './prisma/repositories/prisma-students.repository'
 import { AttachmentsRepository } from '@/domain/forum/application/repositories/attachments.repository'
@@ -41,7 +41,7 @@ import { PrismaAttachmentsRepository } from './prisma/repositories/prisma-attach
       useClass: PrismaAnswerCommentsRepository,
     },
     {
-      provide: AnswerAttachmentsRepository,
+      provide: AnswerAttachmentRepository,
       useClass: PrismaAnswerAttachmentsRepository,
     },
     {
@@ -61,7 +61,7 @@ import { PrismaAttachmentsRepository } from './prisma/repositories/prisma-attach
     QuestionAttachmentsRepository,
     AnswersRepository,
     AnswersCommentsRepository,
-    AnswerAttachmentsRepository,
+    AnswerAttachmentRepository,
     AttachmentsRepository,
   ],
 })

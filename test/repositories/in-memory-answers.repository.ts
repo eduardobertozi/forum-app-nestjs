@@ -1,14 +1,14 @@
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { AnswersRepository } from '@/domain/forum/application/repositories/answers.repository'
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/answer-attachments.repository'
+import { AnswerAttachmentRepository } from '@/domain/forum/application/repositories/answer-attachment.repository'
 import { DomainEvents } from '@/core/events/domain-events'
 
 export class InMemoryAnswersRepository implements AnswersRepository {
   public items: Answer[] = []
 
   constructor(
-    private readonly answerAttachmentsRepository?: AnswerAttachmentsRepository,
+    private readonly answerAttachmentsRepository?: AnswerAttachmentRepository,
   ) {}
 
   async findById(id: string): Promise<Answer | null> {

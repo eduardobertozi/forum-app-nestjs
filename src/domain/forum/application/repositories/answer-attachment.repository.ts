@@ -1,6 +1,6 @@
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-attachment'
 
-export abstract class AnswerAttachmentsRepository {
+export abstract class AnswerAttachmentRepository {
   abstract createMany(attachments: AnswerAttachment[]): Promise<void>
   abstract deleteMany(attachments: AnswerAttachment[]): Promise<void>
   abstract findManyByAnswerId(answerId: string): Promise<AnswerAttachment[]>

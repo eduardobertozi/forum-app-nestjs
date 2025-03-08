@@ -4,13 +4,13 @@ import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { Injectable } from '@nestjs/common'
 import { PrismaAnswerMapper } from '../mappers/prisma-answer.mapper'
 import { PrismaService } from '../prisma.service'
-import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/answer-attachments.repository'
+import { AnswerAttachmentRepository } from '@/domain/forum/application/repositories/answer-attachment.repository'
 
 @Injectable()
 export class PrismaAnswersRepository implements AnswersRepository {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly answerAttachmentsRepository: AnswerAttachmentsRepository,
+    private readonly answerAttachmentsRepository: AnswerAttachmentRepository,
   ) {}
 
   async findById(id: string): Promise<Answer | null> {

@@ -1,5 +1,5 @@
 import { makeAnswer } from '@root/test/factories/make-answer'
-import { makeQuestion } from '@root/test/factories/make-questions'
+import { makeQuestion } from '@root/test/factories/make-question'
 import { InMemoryAnswersRepository } from '@root/test/repositories/in-memory-answers.repository'
 import { InMemoryNotificationsRepository } from '@root/test/repositories/in-memory-notifications.repository'
 import { InMemoryQuestionsRepository } from '@root/test/repositories/in-memory-questions.repository'
