@@ -2,11 +2,18 @@ import { AnswerQuestionUseCase } from '@/domain/forum/application/use-cases/answ
 import { CurrentUser } from '@/infra/auth/current-user.decorator'
 import { UserPayload } from '@/infra/auth/strategy'
 import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation.pipe'
-import { Body, Controller, Param, Post } from '@nestjs/common'
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Param,
+  Post,
+} from '@nestjs/common'
 import { z } from 'zod'
 
 const answerQuestionBodySchema = z.object({
   content: z.string(),
+  attachments: z.array(z.string().uuid()),
 })
 
 const bodyValidationPipe = new ZodValidationPipe(answerQuestionBodySchema)
@@ -24,12 +31,17 @@ export class AnswerQuestionController {
     @Param('questionId') questionId: string,
   ) {
     const userId = user.sub
+    const { content, attachments } = body
 
-    await this.answerQuestion.execute({
-      content: body.content,
+    const result = await this.answerQuestion.execute({
+      content,
       authorId: userId,
       questionId,
-      attachmentsIds: [],
+      attachmentsIds: attachments,
     })
+
+    if (result.isLeft()) {
+      throw new BadRequestException()
+    }
   }
 }

@@ -5,7 +5,7 @@ import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 import { Either, left, right } from '@/core/either'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { AnswerAttachment } from '@/domain/forum/enterprise/entities/answer-attachment'
-import { AnswerAttachmentsRepository } from '@/domain/forum/application/repositories/answer-attachments.repository'
+import { AnswerAttachmentRepository } from '@/domain/forum/application/repositories/answer-attachment.repository'
 import { AnswerAttachmentList } from '@/domain/forum/enterprise/entities/answer-attachment-list'
 import { Injectable } from '@nestjs/common'
 
@@ -27,7 +27,7 @@ type EditAnswerResponse = Either<
 export class EditAnswerUseCase {
   constructor(
     private readonly answersRepository: AnswersRepository,
-    private readonly answerAttachmentsRepository: AnswerAttachmentsRepository,
+    private readonly answerAttachmentsRepository: AnswerAttachmentRepository,
   ) {}
 
   async execute({

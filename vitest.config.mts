@@ -6,6 +6,7 @@ export default defineConfig({
   test: {
     globals: true,
     root: './',
+    reporters: ['html'],
   },
   plugins: [
     tsConfigPaths(),

@@ -1,5 +1,5 @@
 import { InMemoryQuestionsRepository } from '@root/test/repositories/in-memory-questions.repository'
-import { makeQuestion } from '@root/test/factories/make-questions'
+import { makeQuestion } from '@root/test/factories/make-question'
 import { DeleteQuestionUseCase } from '@/domain/forum/application/use-cases/delete-question'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'

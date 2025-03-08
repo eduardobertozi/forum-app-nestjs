@@ -8,7 +8,7 @@ import { AnswerCommentFactory } from '@root/test/factories/make-answer-comment'
 import { AnswerFactory } from '@root/test/factories/make-answer'
 import { StudentFactory } from '@root/test/factories/make-student'
 import request from 'supertest'
-import { QuestionFactory } from '@root/test/factories/make-questions'
+import { QuestionFactory } from '@root/test/factories/make-question'
 
 describe('Delete Answer Comment (E2E)', () => {
   let app: INestApplication

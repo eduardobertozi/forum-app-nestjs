@@ -1,7 +1,7 @@
 import { GetQuestionBySlugUseCase } from './get-question-by-slug'
 import { Slug } from '@/domain/forum/enterprise/entities/value-objects/slug'
 import { InMemoryQuestionsRepository } from '@root/test/repositories/in-memory-questions.repository'
-import { makeQuestion } from '@root/test/factories/make-questions'
+import { makeQuestion } from '@root/test/factories/make-question'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: GetQuestionBySlugUseCase

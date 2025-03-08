@@ -22,12 +22,12 @@ export function makeAnswer(
 
 @Injectable()
 export class AnswerFactory {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async makePrismaAnswer(data: Partial<AnswerProps> = {}): Promise<Answer> {
     const answer = makeAnswer(data)
 
-    await this.prismaService.answer.create({
+    await this.prisma.answer.create({
       data: PrismaAnswerMapper.toPrisma(answer),
     })
 
